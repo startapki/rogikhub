@@ -4,5 +4,5 @@ class Organization < ActiveRecord::Base
   has_many :clients
 
   validates :name, presence: true
-  valudates :name, uniqueness: { scope: :hub_id }
+  validates :name, uniqueness: { scope: :hub_id }
 end

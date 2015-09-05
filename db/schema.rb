@@ -15,13 +15,11 @@ ActiveRecord::Schema.define(version: 20150905140739) do
 
   create_table "clients", force: :cascade do |t|
     t.integer  "user_id",         null: false
-    t.integer  "hub_id",          null: false
     t.integer  "organization_id", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  add_index "clients", ["hub_id"], name: "index_clients_on_hub_id"
   add_index "clients", ["organization_id"], name: "index_clients_on_organization_id"
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
@@ -35,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
   add_index "hubs", ["path"], name: "index_hubs_on_path", unique: true
 
   create_table "items", force: :cascade do |t|
-    t.string   "title",                  null: false
+    t.string   "name",                   null: false
     t.integer  "amount",     default: 1, null: false
     t.string   "comment"
     t.integer  "order_id",               null: false
