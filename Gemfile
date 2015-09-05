@@ -12,10 +12,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
 
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'slim'
+gem 'slim-rails'
 
 gem 'pundit'
 gem 'devise',           '~> 3.5.2'
