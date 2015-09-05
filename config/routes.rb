@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :organizations, shallow: true, only: %i(index new create) do
       resources :clients, only: %i(new create)
     end
+
+    resources :orders, except: :show
   end
 
   root to: 'home#index'

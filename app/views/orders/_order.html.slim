@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    = actions_for order, class: 'pull-right'
+    .panel-title
+      =>l order.created_at
+      ' by
+      =< order.client.user.name
+
+  .panel-body
+    = render 'items/list', items: order.items
