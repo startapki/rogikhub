@@ -7,7 +7,7 @@ vendor_user = User.create!(
   name: 'Vendor',
   email: 'vendor@rogik.com',
   password: 'password',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 Vendor.create!(
@@ -24,7 +24,7 @@ client_user = User.create!(
   name: 'Client',
   email: 'client@rogik.com',
   password: 'password',
-  confirmed_at: Time.now
+  confirmed_at: Time.zone.now
 )
 
 Client.create!(
