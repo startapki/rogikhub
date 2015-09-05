@@ -1,5 +1,5 @@
 class ClientsController < HubScopedController
-  before_filter :load_organization
+  before_action :load_organization
 
   def new
     @client = @organization.clients.build user: User.new
