@@ -11,6 +11,10 @@ class HubScopedController < ApplicationController
     @current_client ||= current_hub.clients.find_by!(user: current_user)
   end
 
+  def current_organization
+    @current_organization ||= current_client.organization
+  end
+
   def current_vendor
     @current_vendor ||= current_hub.vendors.find_by!(user: current_user)
   end

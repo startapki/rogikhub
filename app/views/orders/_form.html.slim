@@ -1,0 +1,30 @@
+= bootstrap_nested_form_for @order do |form|
+  table.table#orders
+    thead
+      tr
+        th.col-md-4
+          = Item.human_attribute_name(:name)
+        th.col-md-1
+          = Item.human_attribute_name(:amount)
+        th.col-md-6
+          = Item.human_attribute_name(:comment)
+        th.col-md-1
+    tbody
+      = form.fields_for :items, wrapper: false do |item_form|
+        tr
+          td
+            = item_form.text_field :name, hide_label: true
+          td
+            = item_form.number_field :amount, hide_label: true
+          td
+            = item_form.text_field :comment, hide_label: true
+          td
+            = item_form.link_to_remove
+              i.glyphicon.glyphicon-remove
+    tfoot
+      tr
+        td colspan="4"
+          = form.link_to_add :items, data: { target: '#orders tbody' }
+            i.glyphicon.glyphicon-plus
+
+  = form.submit

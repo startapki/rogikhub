@@ -1,4 +1,16 @@
 ru:
+  question:
+    are_you_sure: 'Вы уверены?'
+
+  header:
+    new: 'Создание'
+    edit: 'Редактирование'
+
+  action:
+    new: 'Создать'
+    edit: 'Редактировать'
+    destroy: 'Удалить'
+
   nav:
     sign_in: 'Войти'
     sign_up: 'Зарегистрироваться'
@@ -11,3 +23,22 @@ ru:
 
   organization:
     new: 'Новая организация'
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%-d %B, %Y"
+      middle: "%A, %d %B"
+
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+      time: "%H:%M"
