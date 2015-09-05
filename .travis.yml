@@ -1,0 +1,11 @@
+language: ruby
+before_install:
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+install:
+- bundle install
+- rake db:setup
+script:
+- bundle exec rubocop
+notifications:
+  email: false
+  slack: startapki:KixxTv9CZihiTveJ1NmbNaAX
