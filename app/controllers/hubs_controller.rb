@@ -6,7 +6,7 @@ class HubsController < ApplicationController
   def create
     @hub = Hub.new hub_params
     if @hub.save
-      redirect_to @hub, notice: t('model.created')
+      redirect_to organizations_path(@hub), notice: t('model.created')
     else
       render :new
     end

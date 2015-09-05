@@ -1,0 +1,5 @@
+= bootstrap_form_for [client.organization, client] do |f|
+  = f.fields_for :user do |user_form|
+    = user_form.text_field :email
+    = user_form.text_field :name
+  = f.submit t("devise.invitations.new.submit_button")

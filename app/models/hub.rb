@@ -6,4 +6,8 @@ class Hub < ActiveRecord::Base
 
   validates :name, :path, presence: true
   validates :path, uniqueness: true
+
+  def to_param
+    path
+  end
 end
