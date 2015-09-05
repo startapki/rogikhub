@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :invitable, :database_authenticatable,
+  devise :database_authenticatable, :invitable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :clients
