@@ -1,0 +1,26 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/20150905131659_add_devise_to_users.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/20150905131659_add_devise_to_users.rb'
+    - 'db/migrate/20150905133108_devise_invitable_add_to_users.rb'

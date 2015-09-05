@@ -4,15 +4,16 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
-  # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'a506963a2fe289e26be47a4f37a7c4d1f3a7fe3b1345f3c265c9f9d54752e8df41cc8aa5e6fb8201783f5de139441fbab1f385335cd77c2b407767b3c9f0687b'
+  # Devise will use the `secret_key_base` on Rails 4+ applications as
+  # its `secret_key` by default. You can change it below and use your
+  # own secret key.
+  # config.secret_key = 'bc59e6d477431a1a438e421e6eae4d5fcf47d58acfc38dd012502de168efab95f6cd5d0121fae614098134adff31dee06627523085043f4a810146db5141b4af'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  # config.mailer_sender = 'user@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -28,39 +29,45 @@ Devise.setup do |config|
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
-  # session. If you need permissions, you should implement that in a before filter.
+  # session. If you need permissions, you should implement that in a
+  # before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
 
-  # Configure parameters from the request object used for authentication. Each entry
-  # given should be a request method and it will automatically be passed to the
-  # find_for_authentication method and considered in your model lookup. For instance,
-  # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
-  # The same considerations mentioned for authentication_keys also apply to request_keys.
+  # Configure parameters from the request object used for authentication.
+  # Each entry given should be a request method and it will automatically be
+  # passed to the find_for_authentication method and considered in your model
+  # lookup. For instance, if you set :request_keys to [:subdomain], :subdomain
+  # will be used on authentication.
+  # The same considerations mentioned for authentication_keys also apply
+  # to request_keys.
   # config.request_keys = []
 
   # Configure which authentication keys should be case-insensitive.
-  # These keys will be downcased upon creating or modifying a user and when used
-  # to authenticate or find a user. Default is :email.
+  # These keys will be downcased upon creating or modifying a user and
+  # when used to authenticate or find a user. Default is :email.
   config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
-  # modifying a user and when used to authenticate or find a user. Default is :email.
+  # modifying a user and when used to authenticate or find a user.
+  # Default is :email.
   config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
-  # It can be set to an array that will enable params authentication only for the
-  # given strategies, for example, `config.params_authenticatable = [:database]` will
+  # It can be set to an array that will enable params authentication only for
+  # the given strategies, for example,
+  # `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
-  # given strategies, for example, `config.http_authenticatable = [:database]` will
-  # enable it only for database authentication. The supported strategies are:
-  # :database      = Support basic authentication with authentication key + password
+  # given strategies, for example, `config.http_authenticatable = [:database]`
+  # will enable it only for database authentication. The supported strategies
+  # are:
+  # :database = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
@@ -88,66 +95,20 @@ Devise.setup do |config|
   # config.clean_up_csrf_token_on_authentication = true
 
   # ==> Configuration for :database_authenticatable
-  # For bcrypt, this is the cost for hashing the password and defaults to 10. If
-  # using other encryptors, it sets how many times you want the password re-encrypted.
-  #
-  # Limiting the stretches to just one in testing will increase the performance of
-  # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
-  # a value less than 10 in other environments. Note that, for bcrypt (the default
-  # encryptor), the cost increases exponentially with the number of stretches (e.g.
-  # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
+  # For bcrypt, this is the cost for hashing the password and defaults to 10.
+  # If using other encryptors, it sets how many times you want the password
+  # re-encrypted.
+
+  # Limiting the stretches to just one in testing will increase the performance
+  # of your test suite dramatically. However, it is STRONGLY RECOMMENDED to
+  # not use a value less than 10 in other environments. Note that, for bcrypt
+  # (the default encryptor), the cost increases exponentially with the number
+  # of stretches (e.g. a value of 20 is already extremely slow: approx.
+  # 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'b501efa69747592adb3caf4ae56e37f2b9dcc5e215ccc70797abd729fb7d86bf40470dccddc6ec5382104c382b4dd8b88b122fb7f70a3ea48775cea23cf9c1d0'
-
-  # ==> Configuration for :invitable
-  # The period the generated invitation token is valid, after
-  # this period, the invited resource won't be able to accept the invitation.
-  # When invite_for is 0 (the default), the invitation won't expire.
-  # config.invite_for = 2.weeks
-
-  # Number of invitations users can send.
-  # - If invitation_limit is nil, there is no limit for invitations, users can
-  # send unlimited invitations, invitation_limit column is not used.
-  # - If invitation_limit is 0, users can't send invitations by default.
-  # - If invitation_limit n > 0, users can send n invitations.
-  # You can change invitation_limit column for some users so they can send more
-  # or less invitations, even with global invitation_limit = 0
-  # Default: nil
-  # config.invitation_limit = 5
-
-  # The key to be used to check existing users when sending an invitation
-  # and the regexp used to test it when validate_on_invite is not set.
-  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
-  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
-
-  # Flag that force a record to be valid before being actually invited
-  # Default: false
-  # config.validate_on_invite = true
-
-  # Resend invitation if user with invited status is invited again
-  # Default: true
-  # config.resend_invitation = false
-
-  # The class name of the inviting model. If this is nil,
-  # the #invited_by association is declared to be polymorphic.
-  # Default: nil
-  # config.invited_by_class_name = 'User'
-
-  # The foreign key to the inviting model (if invited_by_class_name is set)
-  # Default: :invited_by_id
-  # config.invited_by_foreign_key = :invited_by_id
-
-  # The column name used for counter_cache column. If this is nil,
-  # the #invited_by association is declared without counter_cache.
-  # Default: nil
-  # config.invited_by_counter_cache = :invitations_count
-
-  # Auto-login after the user accepts the invite. If this is false,
-  # the user will need to manually log in after accepting the invite.
-  # Default: false
-  # config.allow_insecure_sign_in_after_accept = true
+  # config.pepper = '0b372f848e34d92b698f72b833def9dec0e274226eef1d6534a05ebb229bebb3cee91e7d8767f74148ea6fd8e641d26439ad420a1c01e2467d8bf9e30da47026'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -165,11 +126,12 @@ Devise.setup do |config|
   # before confirming their account.
   # config.confirm_within = 3.days
 
-  # If true, requires any email changes to be confirmed (exactly the same way as
-  # initial account confirmation) to be applied. Requires additional unconfirmed_email
-  # db field (see migrations). Until confirmed, new email is stored in
-  # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # If true, requires any email changes to be confirmed
+  # (exactly the same way as initial account confirmation) to be applied.
+  # Requires additional unconfirmed_email db field (see migrations).
+  # Until confirmed, new email is stored in unconfirmed_email column,
+  # and copied to email column on successful confirmation.
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -202,9 +164,13 @@ Devise.setup do |config|
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
 
+  # If true, expires auth token on session timeout.
+  # config.expire_auth_token_on_timeout = false
+
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
-  # :failed_attempts = Locks an account after a number of failed attempts to sign in.
+  # :failed_attempts = Locks an account after a number of failed attempts
+  # to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
 
@@ -213,7 +179,8 @@ Devise.setup do |config|
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
-  # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
+  # :time  = Re-enables login after a certain amount of time
+  # (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
@@ -238,23 +205,26 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
-  # When set to false, does not sign a user in automatically after their password is
-  # reset. Defaults to true, so a user is signed in automatically after a reset.
+  # When set to false, does not sign a user in automatically after their
+  # password is reset.
+  # Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
-  # Allow you to use another encryption algorithm besides bcrypt (default). You can use
-  # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
-  # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
-  # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
-  # REST_AUTH_SITE_KEY to pepper).
+  # Allow you to use another encryption algorithm besides bcrypt (default).
+  # You can use :sha1, :sha512 or encryptors from others authentication tools
+  # as :clearance_sha1, :authlogic_sha512 (then you should set stretches above
+  # to 20 for default behavior)
+  # and :restful_authentication_sha1 (then you should set stretches to 10,
+  # and copy REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
+  # Turn scoped views on. Before rendering "sessions/new", it will first
+  # check for "users/sessions/new".
+  # It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
 
@@ -287,7 +257,8 @@ Devise.setup do |config|
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
-  # change the failure app, you can configure them inside the config.warden block.
+  # change the failure app, you can configure them inside the
+  # config.warden block.
   #
   # config.warden do |manager|
   #   manager.intercept_401 = false
@@ -295,8 +266,9 @@ Devise.setup do |config|
   # end
 
   # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
-  # is mountable, there are some extra configurations to be taken into account.
+  # When using Devise inside an engine, let's call it `MyEngine`,
+  # and this engine is mountable, there are some extra configurations to
+  # be taken into account.
   # The following options are available, assuming the engine is mounted as:
   #
   #     mount MyEngine, at: '/my_engine'
