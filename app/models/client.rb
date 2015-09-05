@@ -4,4 +4,6 @@ class Client < ActiveRecord::Base
 
   validates :user, :organization, presence: true
   validates :user_id, uniqueness: { scope: [:organization_id] }
+
+  accepts_nested_attributes_for :user
 end

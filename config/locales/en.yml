@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+
+  client:
+    new: 'New Client'
+
+  organization:
+    new: 'New Organization'

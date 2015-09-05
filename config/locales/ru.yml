@@ -4,3 +4,10 @@ ru:
     sign_up: 'Зарегистрироваться'
     logout: 'Выйти'
     edit_profile: 'Редактировать профиль'
+
+  client:
+    clients: 'Клиенты'
+    new: 'Новый клиент'
+
+  organization:
+    new: 'Новая организация'

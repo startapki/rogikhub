@@ -1,0 +1,16 @@
+h3
+  => t('client.clients')
+.new.draft.panel.panel-default
+  .panel-heading
+    = link_to new_organization_path(current_hub) do
+      i.glyphicon.glyphicon-plus= t('organization.new')
+- @organizations.each do |organization|
+  .panel.panel-default
+    .panel-heading
+      = organization.name
+    .panel-body
+      ul
+        li= link_to new_organization_client_path(current_hub, organization) do
+          i.glyphicon.glyphicon-plus= t('client.new')
+        - organization.clients.each do |client|
+          li= client.user.name
