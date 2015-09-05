@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905134523) do
+ActiveRecord::Schema.define(version: 20150905140739) do
 
   create_table "clients", force: :cascade do |t|
     t.integer  "user_id",         null: false
@@ -34,9 +34,45 @@ ActiveRecord::Schema.define(version: 20150905134523) do
 
   add_index "hubs", ["path"], name: "index_hubs_on_path", unique: true
 
-  create_table "organizations", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "items", force: :cascade do |t|
+    t.string   "title",                  null: false
+    t.integer  "amount",     default: 1, null: false
+    t.string   "comment"
+    t.integer  "order_id",               null: false
+    t.integer  "status_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
+
+  add_index "items", ["order_id"], name: "index_items_on_order_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "client_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders", ["client_id"], name: "index_orders_on_client_id"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "hub_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "organizations", ["hub_id"], name: "index_organizations_on_hub_id"
+  add_index "organizations", ["name"], name: "index_organizations_on_name", unique: true
+
+  create_table "statuses", force: :cascade do |t|
+    t.integer  "hub_id",                     null: false
+    t.boolean  "final",      default: false, null: false
+    t.string   "name",                       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "statuses", ["hub_id"], name: "index_statuses_on_hub_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
