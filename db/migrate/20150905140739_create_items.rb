@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
-      t.string :title, null: false
+      t.string :name, null: false
       t.integer :amount, null: false, default: 1
       t.string :comment
 
