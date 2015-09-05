@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim'
 
+gem 'pundit'
 gem 'devise',           '~> 3.5.2'
 gem 'devise_invitable', '~> 1.5.2'
 
@@ -48,5 +49,4 @@ end
 
 group :development, :test do
   gem 'spring'
-  gem 'spring-commands-rspec'
 end
