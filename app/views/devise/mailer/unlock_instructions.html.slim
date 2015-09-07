@@ -1,14 +1,14 @@
 p
-  | Hello
+  = t '.hello'
   =< @resource.email
   | !
 
 p
-  | Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+  = t '.account_locked'
 
 p
-  | Click the link below to unlock your account:
+  = t '.click_to_unlock't:
 
 p
   = link_to unlock_url(@resource, unlock_token: @token)
-    | Unlock my account
+    = t '.unlock_account'

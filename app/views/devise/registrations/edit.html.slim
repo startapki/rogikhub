@@ -12,7 +12,7 @@
 
       - if resource.pending_reconfirmation?
         .alert.alert-warning
-          | Currently waiting confirmation for:
+          = t '.currently_waiting_confirmation'
           =< resource.unconfirmed_email
 
       hr
@@ -32,7 +32,7 @@
 
       hr
 
-      = f.submit t '.update'
+      = f.submit t('.update')
 
   .panel-body
     .well.well-sm
@@ -43,4 +43,4 @@
 
   .panel-footer
     = link_to :back
-    = t '.back'
+      = t '.back'

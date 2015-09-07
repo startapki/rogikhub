@@ -29,30 +29,7 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         remember_me: 'Запомнить'
-        current_password: 'Поточный пароль'
-
-  devise:
-    shared:
-      links:
-        sign_up: 'Регистрация'
-        sign_in: 'Войти'
-        forgot_password: 'Вы забыли пароль?'
-        not_receive_confirmation_instructions: "Вы не получили инструкции подтверждения?"
-    registrations:
-      new:
-        sign_up: 'Регистрация'
-      edit:
-        edit: 'Редактирование'
-        unhappy: 'Что-то не так?'
-        update: 'Обновить'
-        сancel_account: 'Удалить мой аккаунт'
-        back: 'Назад'
-        current_password_need: 'нам нужен Ваш текущий пароль чтобы подтвердить изменения'
-        leave_blank: 'оставте пустым, если не хотите изменять'
-
-    sessions:
-      new:
-        sign_in: 'Войти'
+        current_password: 'Текущий пароль'
 
   nav:
     sign_in: 'Войти'

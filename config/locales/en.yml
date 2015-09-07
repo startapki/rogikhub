@@ -20,10 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  devise:
-    registrations:
-      new:
-        sign_up: 'Sign up'
 
   helpers:
     submit:
@@ -37,14 +33,6 @@ en:
         name: 'Name'
         password: 'Password'
         password_confirmation: 'Password confirmation'
-
-  devise:
-    shared:
-      links:
-        sign_up: 'Sign up'
-        sign_in: 'Sign in'
-        forgot_password: 'Forgot your password?'
-        not_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
 
   client:
     new: 'New Client'
