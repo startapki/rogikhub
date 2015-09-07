@@ -30,7 +30,7 @@ ru:
         change_my_password: 'Изменить мой пароль'
       new:
         forgot_password: 'Вы забыли пароль?'
-        send_reset_password_instructions: 'Выслать инструкции для изменения пароля'
+        send_reset_password_instructions: 'Выслать инструкции для смены пароля'
 
     registrations:
       new:
