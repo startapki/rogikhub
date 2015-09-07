@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-
   devise:
     registrations:
       new:
@@ -46,3 +45,9 @@ en:
         sign_in: 'Sign in'
         forgot_password: 'Forgot your password?'
         not_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+
+  client:
+    new: 'New Client'
+
+  organization:
+    new: 'New Organization'

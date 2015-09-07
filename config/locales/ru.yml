@@ -1,13 +1,16 @@
 ru:
   question:
     are_you_sure: 'Вы уверены?'
+
   header:
     new: 'Создание'
     edit: 'Редактирование'
+
   action:
     new: 'Создать'
     edit: 'Редактировать'
     destroy: 'Удалить'
+
   flash:
     not_authorized: 'Вы не авторизированы'
 
@@ -17,14 +20,6 @@ ru:
     destroyed: 'Успешно удалено'
     not_updated: 'Во время обновления возникли ошибки'
     not_destroyed: 'Во время удаления возникли ошибки'
-
-  nav:
-    users: 'Пользователи'
-    sign_in: 'Войти'
-    sign_up: 'Регистрация'
-    logout: 'Выйти'
-    edit_profile: 'Редактировать профиль'
-
 
   activerecord:
     attributes:
@@ -59,3 +54,34 @@ ru:
       new:
         sign_in: 'Войти'
 
+  nav:
+    sign_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    logout: 'Выйти'
+    edit_profile: 'Редактировать профиль'
+
+  client:
+    clients: 'Клиенты'
+    new: 'Новый клиент'
+
+  organization:
+    new: 'Новая организация'
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%-d %B, %Y"
+      middle: "%A, %d %B"
+
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+      time: "%H:%M"

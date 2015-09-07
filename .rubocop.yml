@@ -1,4 +1,6 @@
 AllCops:
+  RunRailsCops: true
+
   Include:
     - '**/Rakefile'
     - '**/config.ru'
@@ -11,6 +13,9 @@ Style/Documentation:
 
 Metrics/LineLength:
   Max: 80
+
+Style/MultilineOperationIndentation:
+  Enabled: false
 
 Metrics/LineLength:
   Exclude:

@@ -1,0 +1,10 @@
+div
+= item_counter + 1
+|.
+=<> item.name
+| x
+=<> item.amount
+- if item.comment.present?
+  |(
+  = item.comment
+  |)

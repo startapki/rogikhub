@@ -1,8 +1,9 @@
 class Client < ActiveRecord::Base
   belongs_to :user
-  belongs_to :hub
   belongs_to :organization
 
-  validates :user, :hub, :organizaion, presence: true
-  validates :user_id, uniqueness: { scope: [:hub_id, :organization_id] }
+  validates :user, :organization, presence: true
+  validates :user_id, uniqueness: { scope: [:organization_id] }
+
+  accepts_nested_attributes_for :user
 end

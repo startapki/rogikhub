@@ -16,6 +16,8 @@ gem 'jquery-turbolinks'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'nested_form'
+gem 'russian'
 
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
