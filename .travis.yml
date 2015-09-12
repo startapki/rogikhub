@@ -6,6 +6,10 @@ install:
   - rake db:setup
 script:
   - bundle exec rubocop
+  - bundle exec rspec
 notifications:
   email: false
   slack: startapki:KixxTv9CZihiTveJ1NmbNaAX
+addons:
+  code_climate:
+    repo_token: 41bd1e8d206f48f765b44de1142030c0a60f7487834ca0a358d179efd350597b
