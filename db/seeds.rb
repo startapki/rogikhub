@@ -1,11 +1,11 @@
 hub = Hub.create!(
-  name: 'Rogik\'s hub',
-  path: 'rogik'
+  name: 'Sample hub',
+  path: 'sample'
 )
 
 vendor_user = User.create!(
   name: 'Vendor',
-  email: 'vendor@rogik.com',
+  email: 'vendor@example.com',
   password: 'password',
   confirmed_at: Time.zone.now
 )
@@ -16,13 +16,13 @@ Vendor.create!(
 )
 
 organization = Organization.create!(
-  name: 'IntertradeAuto',
+  name: 'Examlpe inc.',
   hub: hub
 )
 
 client_user = User.create!(
   name: 'Client',
-  email: 'client@rogik.com',
+  email: 'client@example.com',
   password: 'password',
   confirmed_at: Time.zone.now
 )

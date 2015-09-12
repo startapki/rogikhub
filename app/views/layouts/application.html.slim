@@ -9,7 +9,10 @@ html
     = csrf_meta_tags
 
   body
-    = render partial: 'layouts/navigation'
+    - if defined?(current_hub) && current_hub.present?
+      = render partial: 'layouts/hub_navigation'
+    - else
+      = render partial: 'layouts/navigation'
     #container.container
       = render partial: 'layouts/alert'
       = yield

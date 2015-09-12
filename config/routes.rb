@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  resources :hubs, only: %i(new create show)
-
   devise_for :users
 
-  scope ':hub_path' do
+  resources :hubs, param: :path, path: '', only: %i(new create)
+
+  scope ':path' do
     resources :organizations, shallow: true, only: %i(index new create) do
       resources :clients, only: %i(new create)
     end
 
-    resources :orders, except: :show
+    namespace :clients do
+      resources :orders, except: :show
+    end
+
+    get '/', to: 'hub_scoped#index', as: :hub
   end
 
-  root to: 'home#index'
+  root to: 'hubs#index'
 end
