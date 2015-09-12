@@ -1,4 +1,11 @@
 class HubsController < ApplicationController
+  def index
+    return unless current_user.present?
+
+    @vendors = current_user.vendors.includes(:hub)
+    @clients = current_user.clients.includes(organization: :hub)
+  end
+
   def new
     @hub = Hub.new
   end
@@ -10,10 +17,6 @@ class HubsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @hub = Hub.find(params[:id])
   end
 
   private

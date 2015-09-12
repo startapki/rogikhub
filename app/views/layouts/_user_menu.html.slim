@@ -1,0 +1,21 @@
+ul.nav.navbar-nav.navbar-right
+  - if current_user.present?
+    li.dropdown
+      a.dropdown-toggle href="" data-toggle="dropdown"
+        => current_user.name
+        b.caret
+      ul.dropdown-menu
+        li
+          = link_to edit_user_registration_path
+            =t 'nav.edit_profile'
+        li.divider
+        li
+          = link_to destroy_user_session_path, method: :delete
+            =t 'nav.logout'
+  - else
+    li
+      = link_to new_user_session_path
+        =t 'nav.sign_in'
+    li
+      = link_to new_user_registration_path
+        =t 'nav.sign_up'

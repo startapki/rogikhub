@@ -1,0 +1,26 @@
+- if @vendors.present?
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title
+        =t '.as_vendor'
+    .panel-body
+      ul.list-group
+        - @vendors.each do |vendor|
+          = link_to hub_path(vendor.hub)
+            li.list-group-item
+              => vendor.hub.name
+
+- if @clients.present?
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title
+        =t '.as_client'
+    .panel-body
+      ul.list-group
+        - @clients.each do |client|
+          = link_to hub_path(client.organization.hub)
+            li.list-group-item
+              => client.organization.hub.name
+              | (representing
+              =< client.organization.name
+              | )

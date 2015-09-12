@@ -1,14 +1,17 @@
 class HubScopedController < ApplicationController
-  helper_method :current_hub
+  helper_method :current_hub, :current_client, :current_vendor
+
+  def index
+  end
 
   private
 
   def current_hub
-    @current_hub ||= Hub.find_by!(path: params[:hub_path])
+    @current_hub ||= Hub.find_by!(path: params[:path])
   end
 
   def current_client
-    @current_client ||= current_hub.clients.find_by!(user: current_user)
+    @current_client ||= current_hub.clients.find_by(user: current_user)
   end
 
   def current_organization
@@ -16,10 +19,10 @@ class HubScopedController < ApplicationController
   end
 
   def current_vendor
-    @current_vendor ||= current_hub.vendors.find_by!(user: current_user)
+    @current_vendor ||= current_hub.vendors.find_by(user: current_user)
   end
 
   def default_url_options(*)
-    { hub_path: current_hub.path }
+    { path: current_hub }
   end
 end

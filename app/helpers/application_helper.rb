@@ -13,10 +13,8 @@ module ApplicationHelper
   private
 
   def edit_button_for(item)
-    item_name = item.class.to_s.underscore
-
     link_to(
-      '', send(:"edit_#{item_name}_path", item),
+      '', edit_polymorphic_path(item),
       class: 'btn btn-default btn-xs glyphicon glyphicon-pencil'
     )
   end
