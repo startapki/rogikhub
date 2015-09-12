@@ -24,5 +24,16 @@ module Rogikhub
 
       Devise::Mailer.layout 'mail'
     end
+
+    config.generators do |g|
+      g.template_engine :slim
+      g.assets false
+      g.helper false
+      g.jbuilder false
+      g.test_framework :rspec, view_specs: false, routing_specs: false,
+                               helper_specs: false, request_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factoriesr'
+      g.integration_tool false
+    end
   end
 end
