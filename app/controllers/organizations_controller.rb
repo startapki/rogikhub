@@ -1,6 +1,6 @@
 class OrganizationsController < HubScopedController
   def index
-    @organizations = current_hub.organizations
+    @organizations = current_hub.organizations.includes(clients: :user)
   end
 
   def new
@@ -9,6 +9,7 @@ class OrganizationsController < HubScopedController
 
   def create
     @organization = current_hub.organizations.build organization_params
+
     if @organization.save
       redirect_to organizations_path(current_hub), notice: t('model.created')
     else
