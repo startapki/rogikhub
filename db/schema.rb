@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150905140739) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.integer  "user_id",         null: false
     t.integer  "organization_id", null: false
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "clients", ["organization_id"], name: "index_clients_on_organization_id"
-  add_index "clients", ["user_id"], name: "index_clients_on_user_id"
+  add_index "clients", ["organization_id"], name: "index_clients_on_organization_id", using: :btree
+  add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
 
   create_table "hubs", force: :cascade do |t|
     t.string   "name"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "hubs", ["path"], name: "index_hubs_on_path", unique: true
+  add_index "hubs", ["path"], name: "index_hubs_on_path", unique: true, using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "items", ["order_id"], name: "index_items_on_order_id"
+  add_index "items", ["order_id"], name: "index_items_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "client_id",  null: false
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "orders", ["client_id"], name: "index_orders_on_client_id"
+  add_index "orders", ["client_id"], name: "index_orders_on_client_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name",       null: false
@@ -59,8 +62,8 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "organizations", ["hub_id"], name: "index_organizations_on_hub_id"
-  add_index "organizations", ["name"], name: "index_organizations_on_name", unique: true
+  add_index "organizations", ["hub_id"], name: "index_organizations_on_hub_id", using: :btree
+  add_index "organizations", ["name"], name: "index_organizations_on_name", unique: true, using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.integer  "hub_id",                     null: false
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "statuses", ["hub_id"], name: "index_statuses_on_hub_id"
+  add_index "statuses", ["hub_id"], name: "index_statuses_on_hub_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -100,12 +103,12 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.integer  "invitations_count",      default: 0
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vendors", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -114,7 +117,7 @@ ActiveRecord::Schema.define(version: 20150905140739) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "vendors", ["hub_id"], name: "index_vendors_on_hub_id"
-  add_index "vendors", ["user_id"], name: "index_vendors_on_user_id"
+  add_index "vendors", ["hub_id"], name: "index_vendors_on_hub_id", using: :btree
+  add_index "vendors", ["user_id"], name: "index_vendors_on_user_id", using: :btree
 
 end

@@ -7,6 +7,10 @@ class Hub < ActiveRecord::Base
   validates :name, :path, presence: true
   validates :path, uniqueness: true
 
+  def self.new_for(user)
+    new vendors: [user.vendors.build]
+  end
+
   def to_param
     path
   end

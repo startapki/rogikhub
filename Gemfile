@@ -61,6 +61,7 @@ group :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 
   gem 'codeclimate-test-reporter', require: false
 end
