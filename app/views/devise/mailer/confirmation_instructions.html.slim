@@ -1,11 +1,11 @@
 p
-  | Welcome
+  = t '.welcome'
   =< @email
   | !
 
 p
-  | You can confirm your account email through the link below:
+  = t '.confirm_account_email_through_the_link'
 
 p
   = link_to confirmation_url(@resource, confirmation_token: @token)
-    | Confirm my account
+    = t '.confirm_account'

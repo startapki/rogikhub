@@ -11,6 +11,26 @@ ru:
     edit: 'Редактировать'
     destroy: 'Удалить'
 
+  flash:
+    not_authorized: 'Вы не авторизированы'
+
+  model:
+    created: 'Успешно создано'
+    updated: 'Успешно обновлено'
+    destroyed: 'Успешно удалено'
+    not_updated: 'Во время обновления возникли ошибки'
+    not_destroyed: 'Во время удаления возникли ошибки'
+
+  activerecord:
+    attributes:
+      user:
+        email: 'Почта'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить'
+        current_password: 'Текущий пароль'
+
   nav:
     sign_in: 'Войти'
     sign_up: 'Зарегистрироваться'
