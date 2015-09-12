@@ -6,6 +6,7 @@ install:
   - rake db:setup
 script:
   - bundle exec rubocop
+  - bundle exec rspec
 notifications:
   email: false
   slack: startapki:KixxTv9CZihiTveJ1NmbNaAX
