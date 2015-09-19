@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  before_action :authenticate_user!
+
   def additional_devise_permitted_params
     { account_update: [:name], sign_up: [:name] }
   end

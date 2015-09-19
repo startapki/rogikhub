@@ -1,7 +1,4 @@
 class OrganizationsController < HubScopedController
-  before_action :authenticate_user!
-  after_action :verify_authorized, except: :index
-
   def index
     @organizations = current_hub.organizations.includes(clients: :user)
   end

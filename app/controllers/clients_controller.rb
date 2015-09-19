@@ -1,7 +1,5 @@
 class ClientsController < HubScopedController
   before_action :load_organization
-  before_action :authenticate_user!
-  after_action :verify_authorized, except: :index
 
   def new
     @client = @organization.clients.build user: User.new
