@@ -1,4 +1,6 @@
 class HubScopedController < ApplicationController
+  after_action :verify_authorized, except: :index
+
   helper_method :current_hub, :current_client, :current_vendor
 
   def index
