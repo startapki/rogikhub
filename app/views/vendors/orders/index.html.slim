@@ -1,0 +1,18 @@
+#wrapper
+  #sidebar-wrapper
+    ul.sidebar-nav
+      li.sidebar-brand
+        = link_to vendors_orders_path
+          =t 'model.order.list'
+      - @organizations.each do |organization|
+        li class="#{'active' if organization.id.to_s == params[:organization_id]}"
+          = link_to organization.name, vendors_orders_path(organization_id: organization.id)
+
+  #page-content-wrapper
+    .container-fluid
+      - if @organization
+        h1
+          = @organization.name
+      - else
+        h1
+          | Select organization

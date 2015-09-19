@@ -16,7 +16,7 @@ Vendor.create!(
 )
 
 organization = Organization.create!(
-  name: 'Examlpe inc.',
+  name: 'Example inc.',
   hub: hub
 )
 

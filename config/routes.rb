@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       resources :orders, except: :show
     end
 
+    namespace :vendors do
+      resources :orders, only: :index
+    end
+
     get '/', to: 'hub_scoped#index', as: :hub
   end
 
