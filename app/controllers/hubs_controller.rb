@@ -1,4 +1,6 @@
 class HubsController < ApplicationController
+  after_action :verify_authorized, except: :index
+
   def index
     return unless current_user.present?
 
@@ -7,11 +9,14 @@ class HubsController < ApplicationController
   end
 
   def new
-    @hub = Hub.new
+    @hub = Hub.new_for current_user
+    authorize @hub
   end
 
   def create
-    @hub = Hub.new hub_params
+    @hub = Hub.new_for(current_user)
+    @hub.assign_attributes hub_params
+    authorize @hub
     if @hub.save
       redirect_to organizations_path(@hub), notice: t('model.hub.created')
     else

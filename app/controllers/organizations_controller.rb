@@ -5,10 +5,12 @@ class OrganizationsController < HubScopedController
 
   def new
     @organization = current_hub.organizations.build
+    authorize @organization
   end
 
   def create
     @organization = current_hub.organizations.build organization_params
+    authorize @organization
 
     if @organization.save
       redirect_to organizations_path(current_hub),

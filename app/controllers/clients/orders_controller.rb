@@ -11,7 +11,8 @@ module Clients
     end
 
     def new
-      @order = Order.new
+      @order = current_client.orders.build
+      authorize @order
     end
 
     def edit
@@ -19,6 +20,7 @@ module Clients
 
     def create
       @order = Order.new(order_params)
+      authorize @order
 
       if @order.save
         redirect_to clients_orders_url, notice: t('model.order.created')
@@ -45,6 +47,7 @@ module Clients
 
     def set_order
       @order = Order.find(params[:id])
+      authorize @order
     end
 
     def order_params
