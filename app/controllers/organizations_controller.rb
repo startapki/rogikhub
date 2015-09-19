@@ -1,14 +1,19 @@
 class OrganizationsController < HubScopedController
+  before_action :authenticate_user!
+  after_action :verify_authorized, except: :index
+
   def index
     @organizations = current_hub.organizations.includes(clients: :user)
   end
 
   def new
     @organization = current_hub.organizations.build
+    authorize @organization
   end
 
   def create
     @organization = current_hub.organizations.build organization_params
+    authorize @organization
 
     if @organization.save
       redirect_to organizations_path(current_hub),
