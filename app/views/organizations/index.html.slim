@@ -1,11 +1,11 @@
 h3
-  => t('client.clients')
+  =t 'model.client.list'
 
 .new.draft.panel.panel-default
   .panel-heading
     = link_to new_organization_path(current_hub)
       i.glyphicon.glyphicon-plus
-      =< t('organization.new')
+      =<t 'model.organization.new'
 
 - @organizations.each do |organization|
   .panel.panel-default
@@ -16,7 +16,7 @@ h3
         li
           = link_to new_organization_client_path(current_hub, organization)
             i.glyphicon.glyphicon-plus
-            =< t('client.new')
+            =<t 'model.client.new'
         - organization.clients.each do |client|
           li
             = client.user.name

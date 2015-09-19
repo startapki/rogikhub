@@ -11,7 +11,8 @@ class OrganizationsController < HubScopedController
     @organization = current_hub.organizations.build organization_params
 
     if @organization.save
-      redirect_to organizations_path(current_hub), notice: t('model.created')
+      redirect_to organizations_path(current_hub),
+                  notice: t('model.organization.created')
     else
       render :new
     end

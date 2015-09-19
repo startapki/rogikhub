@@ -1,4 +1,4 @@
-= bootstrap_nested_form_for [:clients, @order] do |form|
+= bootstrap_nested_form_for [:clients, @order], html: { class: 'nested' } do |form|
   table.table#orders
     thead
       tr
@@ -18,7 +18,7 @@
             = item_form.number_field :amount, hide_label: true
           td
             = item_form.text_field :comment, hide_label: true
-          td
+          td.remove
             = item_form.link_to_remove
               i.glyphicon.glyphicon-remove
     tfoot

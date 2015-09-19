@@ -8,8 +8,10 @@ class ClientsController < HubScopedController
   def create
     user = User.invite! user_params
     if user.persisted?
-      user.clients.create organization: @organization
-      redirect_to organizations_path(current_hub), notice: t('model.created')
+      user.clients.create(organization: @organization)
+
+      redirect_to organizations_path(current_hub),
+                  notice: t('model.client.created')
     else
       render :new
     end
