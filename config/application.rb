@@ -8,8 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Rogikhub
   class Application < Rails::Application
-    config.time_zone = 'UTC'
-
     config.i18n.default_locale = :ru
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

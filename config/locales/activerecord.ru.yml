@@ -1,0 +1,24 @@
+ru:
+  activerecord:
+    models:
+      organization:
+        one: 'Организацию'
+        few: 'Организации'
+        many: 'Организаций'
+        other: 'Организации'
+      order:
+        one: 'Заказ'
+        few: 'Заказа'
+        many: 'Заказов'
+        other: 'Заказы'
+
+    attributes:
+      user:
+        name: 'Имя'
+        email: 'Почта'
+      organization:
+        name: 'Название'
+      item:
+        name: 'Наименование'
+        amount: 'Количество'
+        comment: 'Комментарий'

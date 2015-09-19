@@ -21,7 +21,7 @@ module Clients
       @order = Order.new(order_params)
 
       if @order.save
-        redirect_to clients_orders_url, notice: t('model.created')
+        redirect_to clients_orders_url, notice: t('model.order.created')
       else
         render :new
       end
@@ -29,7 +29,7 @@ module Clients
 
     def update
       if @order.update(order_params)
-        redirect_to clients_orders_url, notice: t('model.updated')
+        redirect_to clients_orders_url, notice: t('model.order.updated')
       else
         render :edit
       end
@@ -38,7 +38,7 @@ module Clients
     def destroy
       @order.destroy
 
-      redirect_to clients_orders_url, notice: t('model.destroyed')
+      redirect_to clients_orders_url, notice: t('model.order.destroyed')
     end
 
     private
