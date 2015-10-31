@@ -4,8 +4,13 @@ class HubsController < ApplicationController
   def index
     return unless current_user.present?
 
-    @vendors = current_user.vendors.includes(:hub)
-    @clients = current_user.clients.includes(organization: :hub)
+    if current_hub.present?
+      redirect_to organizations_path(current_hub)
+    else
+      redirect_to new_hub_path
+    end
+    # @vendors = current_user.vendors.includes(:hub)
+    # @clients = current_user.clients.includes(organization: :hub)
   end
 
   def new
@@ -28,5 +33,10 @@ class HubsController < ApplicationController
 
   def hub_params
     params.require(:hub).permit(:name, :path)
+  end
+
+  def current_hub
+    current_user.vendors.first.try(:hub) ||
+      current_user.clients.first.try(:organization).try(:hub)
   end
 end
