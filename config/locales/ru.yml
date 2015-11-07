@@ -62,3 +62,6 @@ ru:
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
       time: "%H:%M"
+
+  errors:
+    already_client: 'уже клиент'

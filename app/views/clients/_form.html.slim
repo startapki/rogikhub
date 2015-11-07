@@ -1,4 +1,5 @@
 = bootstrap_form_for [client.organization, client] do |f|
+  = f.errors_on :user_id
   = f.fields_for :user do |user_form|
     = user_form.text_field :email
     = user_form.text_field :name
