@@ -1,17 +1,15 @@
-h2
-  = t 'devise.invitations.edit.header'
+.panel.panel-primary
+  .panel-heading
+    h3.panel-title
+      =t 'devise.invitations.edit.header'
 
-= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
-  = devise_error_messages!
-  = f.hidden_field :invitation_token
-  p
-  = f.label :password
-  br
-  = f.password_field :password
-  p
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+  .panel-body
+    = bootstrap_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put, role: 'form' } do |f|
+      = f.hidden_field :invitation_token
+      = f.password_field :password
+      = f.password_field :password_confirmation
 
-  p
-  = f.submit t('devise.invitations.edit.submit_button')
+      = f.submit t('devise.invitations.edit.submit_button')
 
+  .panel-footer
+    = render 'devise/shared/links'

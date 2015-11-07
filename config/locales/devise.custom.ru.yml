@@ -26,7 +26,8 @@ ru:
     passwords:
       edit:
         change_your_password: 'Изменить Ваш пароль'
-        confirm_new_password: 'Подтвердить новый пароль'
+        new_password: 'Новый пароль'
+        confirm_new_password: 'Подтверждение нового пароля'
         change_my_password: 'Изменить мой пароль'
       new:
         forgot_password: 'Вы забыли пароль?'
