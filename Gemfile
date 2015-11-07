@@ -51,6 +51,7 @@ group :development do
   gem 'letter_opener'
 
   gem 'xray-rails'
+  gem 'i18n-tasks', '~> 0.9.1'
 end
 
 group :development, :test do
