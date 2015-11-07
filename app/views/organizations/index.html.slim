@@ -5,6 +5,7 @@ h3
   .panel.panel-default
     .panel-heading
       = organization.name
+      = actions_for organization, class: 'pull-right'
     .panel-body
       ul
         - organization.clients.each do |client|
