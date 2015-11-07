@@ -1,10 +1,21 @@
-div
-= item_counter + 1
-|.
-=<> item.name
-| x
-=<> item.amount
-- if item.comment.present?
-  |(
-  = item.comment
-  |)
+div style='height: 50px'
+  - if current_user.vendor?
+    div style='float: left'
+      = bootstrap_form_for [:vendors, item], layout: :inline do |f|
+        = f.collection_select :status_id,
+          statuses_with_default, 'id', 'name',
+          { hide_label: true },
+          onchange: "$(this.form).trigger('submit.rails');"
+  - else
+    div style='float: left; padding-top: 8px'
+      span.label.label-default = item.status_name
+  div style="padding-top: 8px; margin-left: 108px; "
+    = item_counter + 1
+    |.
+    =<> item.name
+    | x
+    =<> item.amount
+    - if item.comment.present?
+      |(
+      = item.comment
+      |)

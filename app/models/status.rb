@@ -3,5 +3,5 @@ class Status < ActiveRecord::Base
 
   has_many :items
 
-  validates :hub, :name, :final, presence: true
+  validates :hub, :name, presence: true
 end
