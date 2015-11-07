@@ -13,6 +13,7 @@ html
       = render partial: 'layouts/hub_navigation'
     - else
       = render partial: 'layouts/navigation'
-    #container.container
+
+    #container class=(container_class)
       = render partial: 'layouts/alert'
       = yield

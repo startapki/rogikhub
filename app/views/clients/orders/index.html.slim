@@ -1,6 +1,6 @@
 h1
   =t 'model.order.list'
 
-= render @orders
+= render partial: 'orders/order', collection: @orders
 
 = link_to t('model.order.new'), new_clients_order_path
