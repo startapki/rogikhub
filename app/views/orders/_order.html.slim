@@ -7,4 +7,4 @@
       =< order.client.user.name
 
   .panel-body
-    = render order.items
+    = render partial: 'items/item', collection: order.items

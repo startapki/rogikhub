@@ -4,9 +4,11 @@ module ApplicationHelper
       class: "actions btn-group group #{options[:class]}"
     )
 
+    concrete_item = item.try(:last) || item
+
     content_tag(:div, wrapper_options) do
-      concat edit_button_for(item)
-      concat destroy_button_for(item)
+      concat edit_button_for(item) if policy(concrete_item).edit?
+      concat destroy_button_for(item) if policy(concrete_item).destroy?
     end
   end
 
