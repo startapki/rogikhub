@@ -49,6 +49,9 @@ ru:
       as_client: 'Поставщики'
       as_vendor: 'Клиенты'
 
+  order:
+    order_must_contain_items: 'Заказ должен содержать как минимум одну позицию'
+
   date:
     formats:
       default: "%d.%m.%Y"

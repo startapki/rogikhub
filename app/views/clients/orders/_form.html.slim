@@ -1,4 +1,6 @@
-= bootstrap_nested_form_for [:clients, @order], html: { class: 'nested' } do |form|
+= bootstrap_nested_form_for [:clients, @order], html: { class: 'nested' } do |f|
+  = f.errors_on :base
+
   table.table#orders
     thead
       tr
@@ -10,7 +12,7 @@
           = Item.human_attribute_name(:comment)
         th.col-md-1
     tbody
-      = form.fields_for :items, wrapper: false do |item_form|
+      = f.fields_for :items, wrapper: false do |item_form|
         tr.fields
           td
             = item_form.text_field :name, hide_label: true
@@ -24,7 +26,7 @@
     tfoot
       tr
         td colspan="4"
-          = form.link_to_add :items, data: { target: '#orders tbody' }
+          = f.link_to_add :items, data: { target: '#orders tbody' }
             i.glyphicon.glyphicon-plus
 
-  = form.submit
+  = f.submit
