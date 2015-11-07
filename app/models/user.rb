@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :clients
   has_many :vendors
+
+  def vendor?
+    vendors.any?
+  end
 end

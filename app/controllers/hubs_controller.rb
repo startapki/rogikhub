@@ -5,7 +5,11 @@ class HubsController < ApplicationController
     return unless current_user.present?
 
     if current_hub.present?
-      redirect_to organizations_path(current_hub)
+      if current_user.vendor?
+        redirect_to organizations_path(current_hub)
+      else
+        redirect_to clients_orders_path(current_hub)
+      end
     else
       redirect_to new_hub_path
     end
