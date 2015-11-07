@@ -1,14 +1,16 @@
 module ApplicationHelper
-  def actions_for(item, options = {})
+  def actions_for(item, *actions)
+    options = actions.extract_options!
+    actions = [:edit, :destroy] if actions.blank?
+
     wrapper_options = options.merge(
       class: "actions btn-group group #{options[:class]}"
     )
 
-    concrete_item = item.try(:last) || item
-
     content_tag(:div, wrapper_options) do
-      concat edit_button_for(item) if policy(concrete_item).edit?
-      concat destroy_button_for(item) if policy(concrete_item).destroy?
+      concat edit_button_for(item) if actions.include?(:edit)
+
+      concat destroy_button_for(item) if actions.include?(:destroy)
     end
   end
 
@@ -27,18 +29,21 @@ module ApplicationHelper
   private
 
   def edit_button_for(item)
-    link_to(
-      '', edit_polymorphic_path(item),
-      class: 'btn btn-default btn-xs glyphicon glyphicon-pencil'
-    )
+    concrete_item = item.try(:last) || item
+    options = { class: 'btn btn-default btn-xs glyphicon glyphicon-pencil' }
+    path = edit_polymorphic_path(item)
+
+    link_to('', path, options) if policy(concrete_item).edit?
   end
 
   def destroy_button_for(item)
-    link_to(
-      '', item,
+    concrete_item = item.try(:last) || item
+    options = {
       method: :delete,
       class: 'btn btn-danger btn-xs glyphicon glyphicon-remove',
       data: { confirm: t('question.are_you_sure') }
-    )
+    }
+
+    link_to('', item, options) if policy(concrete_item).destroy?
   end
 end

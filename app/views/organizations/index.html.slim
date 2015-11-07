@@ -5,11 +5,13 @@ h3
   .panel.panel-default
     .panel-heading
       = organization.name
+      = actions_for organization, class: 'pull-right'
     .panel-body
       ul
         - organization.clients.each do |client|
           li
             = client.user.name
+            =< actions_for [organization, client], :destroy
         li
           = link_to new_organization_client_path(current_hub, organization)
             i.glyphicon.glyphicon-plus

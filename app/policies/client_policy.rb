@@ -8,4 +8,8 @@ class ClientPolicy < ApplicationPolicy
   def create?
     Vendor.where(hub: @record.organization.hub, user: @user).exists?
   end
+
+  def update?
+    create?
+  end
 end
