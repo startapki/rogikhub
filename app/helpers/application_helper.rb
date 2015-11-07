@@ -10,6 +10,18 @@ module ApplicationHelper
     end
   end
 
+  def container_class
+    if content_for?(:container_class)
+      content_for(:container_class)
+    else
+      'container'
+    end
+  end
+
+  def container_class=(klass)
+    content_for(:container_class) { klass }
+  end
+
   private
 
   def edit_button_for(item)
