@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :hubs, param: :path, path: '', only: %i(new create)
 
   scope ':path' do
-      resources :clients, only: %i(new create)
     resources :organizations, except: %i(show) do
+      resources :clients, only: %i(new create destroy)
     end
 
     namespace :clients do

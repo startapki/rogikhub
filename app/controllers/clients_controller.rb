@@ -1,5 +1,6 @@
 class ClientsController < HubScopedController
-  before_action :load_organization
+  before_action :set_organization
+  before_action :set_client, only: :destroy
 
   def new
     @client = @organization.clients.build user: User.new
@@ -18,10 +19,23 @@ class ClientsController < HubScopedController
     end
   end
 
+  def destroy
+    authorize @client
+
+    @client.destroy
+
+    redirect_to organizations_path(current_hub),
+                notice: t('model.client.destroyed')
+  end
+
   private
 
-  def load_organization
+  def set_organization
     @organization = current_hub.organizations.find(params[:organization_id])
+  end
+
+  def set_client
+    @client = @organization.clients.find(params[:id])
   end
 
   def send_invite(client)

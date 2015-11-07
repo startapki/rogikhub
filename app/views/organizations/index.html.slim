@@ -11,6 +11,7 @@ h3
         - organization.clients.each do |client|
           li
             = client.user.name
+            =< actions_for [organization, client], :destroy
         li
           = link_to new_organization_client_path(current_hub, organization)
             i.glyphicon.glyphicon-plus
