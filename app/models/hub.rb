@@ -26,5 +26,6 @@ class Hub < ActiveRecord::Base
       statuses.create! name: status_name, final: false
     end
     statuses.create! name: 'Отгружен', final: true
+    statuses.create! name: 'Отсутствует', final: true
   end
 end
