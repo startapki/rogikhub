@@ -44,6 +44,11 @@ ru:
   organization:
     new: 'Новая организация'
 
+  hubs:
+    index:
+      as_client: 'Поставщики'
+      as_vendor: 'Клиенты'
+
   date:
     formats:
       default: "%d.%m.%Y"
