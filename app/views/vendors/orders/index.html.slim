@@ -11,11 +11,4 @@
 
 .page-content-wrapper
   .container-fluid
-    - if @organization
-      h1
-        = @organization.name
-    - else
-      h1
-        | Select organization
-
     = render partial: 'orders/order', collection: @orders

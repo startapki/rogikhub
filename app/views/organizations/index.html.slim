@@ -12,13 +12,15 @@ h3
           li
             = client.user.name
             =< actions_for [organization, client], :destroy
-        li
-          = link_to new_organization_client_path(current_hub, organization)
-            i.glyphicon.glyphicon-plus
-            =<t 'model.client.new'
+        - if policy(Client).new?
+          li
+            = link_to new_organization_client_path(current_hub, organization)
+              i.glyphicon.glyphicon-plus
+              =<t 'model.client.new'
 
-.new.draft.panel.panel-default
-  .panel-heading
-    = link_to new_organization_path(current_hub)
-      i.glyphicon.glyphicon-plus
-      =<t 'model.organization.new'
+- if policy(Organization).new?
+  .new.draft.panel.panel-default
+    .panel-heading
+      = link_to new_organization_path(current_hub)
+        i.glyphicon.glyphicon-plus
+        =<t 'model.organization.new'

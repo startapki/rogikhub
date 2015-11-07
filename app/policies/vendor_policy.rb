@@ -1,0 +1,2 @@
+class VendorPolicy < HubScopedPolicy
+end

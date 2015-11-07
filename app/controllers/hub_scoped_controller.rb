@@ -8,6 +8,10 @@ class HubScopedController < ApplicationController
 
   private
 
+  def policy(*)
+    super.with_hub(current_hub)
+  end
+
   def current_hub
     @current_hub ||= Hub.find_by!(path: params[:path])
   end

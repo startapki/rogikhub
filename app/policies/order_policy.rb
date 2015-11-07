@@ -1,8 +1,6 @@
-class OrderPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+class OrderPolicy < HubScopedPolicy
+  def new?
+    current_hub_client?
   end
 
   def edit?
@@ -14,7 +12,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def update?
-    create?
+    @record.client.user == @user
   end
 
   def destroy?

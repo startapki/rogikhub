@@ -52,7 +52,7 @@ module Clients
 
     def order_params
       params
-        .require(:order)
+        .fetch(:order, {})
         .permit(items_attributes: [:id, :name, :amount, :comment, :_destroy])
         .merge(client: current_client)
     end
