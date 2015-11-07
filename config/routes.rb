@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     namespace :vendors do
       resources :orders, only: :index
+      resources :items, only: :update
     end
 
     get '/', to: 'hub_scoped#index', as: :hub

@@ -20,10 +20,11 @@ class Hub < ActiveRecord::Base
   end
 
   private
+
   def create_statuses
     ['Принят', 'На зборке'].each do |status_name|
-      statuses.create name: status_name, final: false
+      statuses.create! name: status_name, final: false
     end
-    statuses.create name: 'Отгружен', final: true
+    statuses.create! name: 'Отгружен', final: true
   end
 end
