@@ -1,7 +1,7 @@
 ul.nav.navbar-nav.navbar-left
-  li
+  = nav_item 'organizations'
     = link_to organizations_path
       =t 'model.client.list'
-  li
+  = nav_item 'vendors/orders'
     = link_to vendors_orders_path
       =t 'model.order.list'

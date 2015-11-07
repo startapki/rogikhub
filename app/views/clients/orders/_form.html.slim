@@ -11,7 +11,7 @@
         th.col-md-1
     tbody
       = form.fields_for :items, wrapper: false do |item_form|
-        tr
+        tr.fields
           td
             = item_form.text_field :name, hide_label: true
           td
