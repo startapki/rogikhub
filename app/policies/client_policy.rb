@@ -1,15 +1,9 @@
-class ClientPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
-
+class ClientPolicy < HubScopedPolicy
   def create?
-    Vendor.where(hub: @record.organization.hub, user: @user).exists?
+    current_hub_vendor?
   end
 
   def update?
-    create?
+    current_hub_vendor?
   end
 end

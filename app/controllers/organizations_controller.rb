@@ -2,6 +2,8 @@ class OrganizationsController < HubScopedController
   before_action :set_organization, only: [:edit, :update, :destroy]
 
   def index
+    authorize Organization
+
     @organizations = current_hub.organizations.includes(clients: :user)
   end
 
