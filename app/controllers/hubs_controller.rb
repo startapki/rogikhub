@@ -4,28 +4,22 @@ class HubsController < ApplicationController
   def index
     return unless current_user.present?
 
-    if current_hub.present?
-      if current_user.vendor?
-        redirect_to organizations_path(current_hub)
-      else
-        redirect_to clients_orders_path(current_hub)
-      end
-    else
-      redirect_to new_hub_path
-    end
-    # @vendors = current_user.vendors.includes(:hub)
-    # @clients = current_user.clients.includes(organization: :hub)
+    @vendors = current_user.vendors.includes(:hub)
+    @clients = current_user.clients.includes(organization: :hub)
   end
 
   def new
     @hub = Hub.new_for current_user
+
     authorize @hub
   end
 
   def create
     @hub = Hub.new_for(current_user)
     @hub.assign_attributes hub_params
+
     authorize @hub
+
     if @hub.save
       redirect_to organizations_path(@hub), notice: t('model.hub.created')
     else
