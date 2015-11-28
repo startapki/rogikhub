@@ -16,6 +16,11 @@ ru:
         few: 'Пользователя'
         many: 'Пользователей'
         other: 'Пользователи'
+      hub:
+        one: 'Хаб'
+        few: 'Хаба'
+        many: 'Хабов'
+        other: 'Хабы'
 
     attributes:
       user:
