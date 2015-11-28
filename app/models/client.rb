@@ -5,9 +5,19 @@ class Client < ActiveRecord::Base
 
   validates :user, :organization, presence: true
   validates :user_id, uniqueness: {
-    scope: [:organization_id],
+    scope: :organization_id,
     message: I18n.t('errors.already_client')
   }
 
+  validate :user_is_not_vendor
+
   accepts_nested_attributes_for :user
+
+  private
+
+  def user_is_not_vendor
+    return unless organization.hub.vendors.where(user: user).exists?
+
+    errors.add(:user_id, I18n.t('errors.already_vendor'))
+  end
 end

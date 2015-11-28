@@ -15,9 +15,9 @@ nav.navbar.navbar-inverse role="navigation"
           = current_hub.name
 
     #navbar_content.collapse.navbar-collapse
-      - if current_client.present?
-        = render 'layouts/client_menu'
-      - elsif current_vendor.present?
+      - if current_vendor.present?
         = render 'layouts/vendor_menu'
+      - elsif current_client.present?
+        = render 'layouts/client_menu'
 
       = render 'layouts/user_menu'
