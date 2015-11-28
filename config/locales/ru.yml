@@ -36,6 +36,7 @@ ru:
     sign_up: 'Зарегистрироваться'
     logout: 'Выйти'
     edit_profile: 'Редактировать профиль'
+    new_hub: 'Новый хаб'
 
   client:
     clients: 'Клиенты'
