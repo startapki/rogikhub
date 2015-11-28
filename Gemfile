@@ -27,6 +27,9 @@ gem 'pundit'
 gem 'devise',           '~> 3.5.2'
 gem 'devise_invitable', '~> 1.5.2'
 
+gem 'rollbar', '~> 2.4.0'
+gem 'oj', '~> 2.12.14'
+
 group :development do
   gem 'pry-rails'
   gem 'pry-byebug'
