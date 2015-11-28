@@ -1,4 +1,4 @@
-class ItemPolicy < ApplicationPolicy
+class ItemPolicy < HubScopedPolicy
   class Scope < Scope
     def resolve
       scope
