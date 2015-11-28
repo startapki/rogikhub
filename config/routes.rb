@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope ':path' do
     resources :organizations, except: %i(show) do
-      resources :clients, only: %i(new create destroy)
+      resources :clients, except: %i(index, show)
     end
 
     namespace :clients do

@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   has_many :clients
   has_many :vendors
 
-  validates :name, presence: true
-
   def vendor?
     vendors.any?
   end

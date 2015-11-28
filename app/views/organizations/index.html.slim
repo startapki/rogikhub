@@ -10,8 +10,8 @@ h3
       ul
         - organization.clients.each do |client|
           li
-            = client.user.name
-            =< actions_for [organization, client], :destroy
+            = client.name
+            =< actions_for [organization, client]
         - if policy(Client).new?
           li
             = link_to new_organization_client_path(current_hub, organization)

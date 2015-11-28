@@ -1,4 +1,12 @@
 h3
   =t 'model.client.new'
 
-= render 'form', client: @client
+= bootstrap_form_for [@client.organization, @client] do |f|
+  = f.errors_on :user_id
+
+  = f.text_field :name
+
+  = f.fields_for :user do |u|
+    = u.text_field :email
+
+  = f.submit t('devise.invitations.new.submit_button')
