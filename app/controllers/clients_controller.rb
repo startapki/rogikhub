@@ -54,6 +54,7 @@ class ClientsController < HubScopedController
   def new_client_params
     params.require(:client)
       .permit(user_attributes: [:email, :name, :password, :skip_invitation])
-      .deep_merge!(user_attributes: { password: Devise.friendly_token[0, 20] })
+      .deep_merge!(user_attributes: { password: Devise.friendly_token[0, 20],
+                                      confirmed_at: Time.zone.now })
   end
 end
