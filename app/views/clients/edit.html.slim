@@ -1,0 +1,7 @@
+h3
+  =t 'model.client.edit'
+
+= bootstrap_form_for [@client.organization, @client] do |f|
+  = f.text_field :name
+
+  = f.submit

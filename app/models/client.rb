@@ -13,6 +13,10 @@ class Client < ActiveRecord::Base
 
   accepts_nested_attributes_for :user
 
+  def name
+    self[:name] || user.name
+  end
+
   private
 
   def user_is_not_vendor

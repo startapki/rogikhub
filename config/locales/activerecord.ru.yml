@@ -33,4 +33,5 @@ ru:
         amount: 'Количество'
         comment: 'Комментарий'
       client:
+        name: 'Имя'
         user_id: 'Пользователь'
